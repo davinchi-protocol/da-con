@@ -1,0 +1,18 @@
+[package]
+name = "slasher_service"
+version = "0.1.0"
+authors = ["Michael Sproul <michael@sigmaprime.io>"]
+edition = { workspace = true }
+
+[dependencies]
+beacon_chain = { workspace = true }
+directory = { workspace = true }
+lighthouse_network = { workspace = true }
+network = { workspace = true }
+slasher = { workspace = true }
+slog = { workspace = true }
+slot_clock = { workspace = true }
+state_processing = { workspace = true }
+task_executor = { workspace = true }
+tokio = { workspace = true }
+types = { workspace = true }

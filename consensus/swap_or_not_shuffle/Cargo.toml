@@ -1,0 +1,19 @@
+[package]
+name = "swap_or_not_shuffle"
+version = "0.2.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = { workspace = true }
+
+[[bench]]
+name = "benches"
+harness = false
+
+[dev-dependencies]
+criterion = { workspace = true }
+
+[dependencies]
+ethereum_hashing = { workspace = true }
+ethereum-types = { workspace = true }
+
+[features]
+arbitrary = ["ethereum-types/arbitrary"]

@@ -1,0 +1,9 @@
+[package]
+name = "eth2_config"
+version = "0.2.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = { workspace = true }
+
+[dependencies]
+types = { workspace = true }
+paste = { workspace = true }

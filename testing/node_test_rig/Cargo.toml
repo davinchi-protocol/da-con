@@ -1,0 +1,17 @@
+[package]
+name = "node_test_rig"
+version = "0.2.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = { workspace = true }
+
+[dependencies]
+environment = { workspace = true }
+beacon_node = { workspace = true }
+types = { workspace = true }
+tempfile = { workspace = true }
+eth2 = { workspace = true }
+validator_client = { workspace = true }
+validator_dir = { workspace = true, features = ["insecure_keys"] }
+sensitive_url = { workspace = true }
+execution_layer = { workspace = true }
+tokio = { workspace = true }

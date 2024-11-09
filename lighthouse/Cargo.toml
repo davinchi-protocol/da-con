@@ -1,0 +1,83 @@
+[package]
+name = "lighthouse"
+version = "5.3.0"
+authors = ["Sigma Prime <contact@sigmaprime.io>"]
+edition = { workspace = true }
+autotests = false
+rust-version = "1.78.0"
+
+[features]
+default = ["slasher-lmdb"]
+# Writes debugging .ssz files to /tmp during block processing.
+write_ssz_files = ["beacon_node/write_ssz_files"]
+# Compiles the BLS crypto code so that the binary is portable across machines.
+portable = ["bls/supranational-portable"]
+# Compiles BLST so that it always uses ADX instructions.
+modern = ["bls/supranational-force-adx"]
+# Support minimal spec (used for testing only).
+spec-minimal = []
+# Support Gnosis spec and Gnosis Beacon Chain.
+gnosis = []
+# Support slasher MDBX backend.
+slasher-mdbx = ["slasher/mdbx"]
+# Support slasher LMDB backend.
+slasher-lmdb = ["slasher/lmdb"]
+# Support slasher redb backend.
+slasher-redb = ["slasher/redb"]
+# Deprecated. This is now enabled by default on non windows targets.
+jemalloc = []
+
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+malloc_utils = { workspace = true, features = ["jemalloc"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+malloc_utils = { workspace = true }
+
+[dependencies]
+beacon_node = { workspace = true }
+slog = { workspace = true }
+types = { workspace = true }
+bls = { workspace = true }
+ethereum_hashing = { workspace = true }
+clap = { workspace = true }
+environment = { workspace = true }
+boot_node = { path = "../boot_node" }
+futures = { workspace = true }
+validator_client = { workspace = true }
+account_manager = { "path" = "../account_manager" }
+clap_utils = { workspace = true }
+eth2_network_config = { workspace = true }
+lighthouse_version = { workspace = true }
+account_utils = { workspace = true }
+lighthouse_metrics = { workspace = true }
+lazy_static = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+task_executor = { workspace = true }
+malloc_utils = { workspace = true }
+directory = { workspace = true }
+unused_port = { workspace = true }
+database_manager = { path = "../database_manager" }
+slasher = { workspace = true }
+validator_manager = { path = "../validator_manager" }
+logging = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
+validator_dir = { workspace = true }
+slashing_protection = { workspace = true }
+lighthouse_network = { workspace = true }
+sensitive_url = { workspace = true }
+eth1 = { workspace = true }
+eth2 = { workspace = true }
+beacon_processor = { workspace = true }
+
+[[test]]
+name = "lighthouse_tests"
+path = "tests/main.rs"
+
+# Prevent cargo-udeps from flagging the dummy package `target_check`, which exists only
+# to assert properties of the compilation target.
+[package.metadata.cargo-udeps.ignore]
+normal = ["target_check"]

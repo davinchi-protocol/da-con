@@ -1,0 +1,17 @@
+[package]
+name = "database_manager"
+version = "0.1.0"
+edition = { workspace = true }
+
+[dependencies]
+beacon_chain = { workspace = true }
+beacon_node = { workspace = true }
+clap = { workspace = true }
+clap_utils = { workspace = true }
+environment = { workspace = true }
+hex = { workspace = true }
+store = { workspace = true }
+types = { workspace = true }
+slog = { workspace = true }
+strum = { workspace = true }
+serde = { workspace = true }

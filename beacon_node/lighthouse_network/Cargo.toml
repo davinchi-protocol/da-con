@@ -1,0 +1,67 @@
+[package]
+name = "lighthouse_network"
+version = "0.2.0"
+authors = ["Sigma Prime <contact@sigmaprime.io>"]
+edition = { workspace = true }
+
+[dependencies]
+discv5 = { workspace = true }
+gossipsub = { workspace = true }
+unsigned-varint = { version = "0.8", features = ["codec"] }
+ssz_types = { workspace = true }
+types = { workspace = true }
+serde = { workspace = true }
+ethereum_ssz = { workspace = true }
+ethereum_ssz_derive = { workspace = true }
+slog = { workspace = true }
+lighthouse_version = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+error-chain = { workspace = true }
+dirs = { workspace = true }
+fnv = { workspace = true }
+lazy_static = { workspace = true }
+lighthouse_metrics = { workspace = true }
+smallvec = { workspace = true }
+tokio-io-timeout = "1"
+lru = { workspace = true }
+lru_cache = { workspace = true }
+parking_lot = { workspace = true }
+sha2 = { workspace = true }
+snap = { workspace = true }
+hex = { workspace = true }
+tokio-util = { workspace = true }
+tiny-keccak = "2"
+task_executor = { workspace = true }
+rand = { workspace = true }
+directory = { workspace = true }
+regex = { workspace = true }
+strum = { workspace = true }
+superstruct = { workspace = true }
+prometheus-client = "0.22.0"
+unused_port = { workspace = true }
+delay_map = { workspace = true }
+bytes = { workspace = true }
+either = { workspace = true }
+itertools = { workspace = true }
+
+# Local dependencies
+void = "1.0.2"
+libp2p-mplex = "0.41"
+
+[dependencies.libp2p]
+version = "0.53"
+default-features = false
+features = ["identify", "yamux", "noise", "dns", "tcp", "tokio", "plaintext", "secp256k1", "macros", "ecdsa", "metrics", "quic", "upnp"]
+
+[dev-dependencies]
+slog-term = { workspace = true }
+slog-async = { workspace = true }
+tempfile = { workspace = true }
+quickcheck = { workspace = true }
+quickcheck_macros = { workspace = true }
+async-channel = { workspace = true }
+logging = { workspace = true }
+
+[features]
+libp2p-websocket = []

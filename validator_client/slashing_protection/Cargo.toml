@@ -1,0 +1,30 @@
+[package]
+name = "slashing_protection"
+version = "0.1.0"
+authors = ["Michael Sproul <michael@sigmaprime.io>", "pscott <scottpiriou@gmail.com>"]
+edition = { workspace = true }
+autotests = false
+
+[[test]]
+name = "slashing_protection_tests"
+path = "tests/main.rs"
+
+[dependencies]
+tempfile = { workspace = true }
+types = { workspace = true }
+rusqlite = { workspace = true }
+r2d2 = { workspace = true }
+r2d2_sqlite = "0.21.0"
+serde = { workspace = true }
+serde_json = { workspace = true }
+ethereum_serde_utils = { workspace = true }
+filesystem = { workspace = true }
+arbitrary = { workspace = true, features = ["derive"] }
+
+[dev-dependencies]
+lazy_static = { workspace = true }
+rayon = { workspace = true }
+
+[features]
+arbitrary-fuzz = ["types/arbitrary-fuzz"]
+portable = ["types/portable"]

@@ -1,0 +1,26 @@
+[package]
+name = "validator_dir"
+version = "0.1.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = { workspace = true }
+
+[features]
+insecure_keys = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bls = { workspace = true }
+eth2_keystore = { workspace = true }
+filesystem = { workspace = true }
+types = { workspace = true }
+rand = { workspace = true }
+deposit_contract = { workspace = true }
+tree_hash = { workspace = true }
+hex = { workspace = true }
+derivative = { workspace = true }
+lockfile = { workspace = true }
+directory = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }

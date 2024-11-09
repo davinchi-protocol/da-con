@@ -1,0 +1,12 @@
+[package]
+name = "int_to_bytes"
+version = "0.2.0"
+authors = ["Paul Hauner <paul@paulhauner.com>"]
+edition = { workspace = true }
+
+[dependencies]
+bytes = { workspace = true }
+
+[dev-dependencies]
+yaml-rust2 = "0.8"
+hex = { workspace = true }
